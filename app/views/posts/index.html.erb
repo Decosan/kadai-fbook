@@ -1,2 +1,12 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<h1>Posts index</h1>
+<ul class="media-list">
+  <%@posts.each do |post|%>
+  	<li class="media">
+      <%=link_to "#{post.user.name}:",user_path(post.user.id),class:"media-left"%>
+  		<div class="media-body">
+  			<h4 class="media-heading"><%=post.title%></h4>
+  			<%=post.content%>
+  		</div>
+  	</li>
+  <% end%>
+</ul>

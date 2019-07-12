@@ -1,2 +1,7 @@
-<h1>Posts#show</h1>
-<p>Find me in app/views/posts/show.html.erb</p>
+<h1>Post info.</h1>
+<div class="jumbotron">
+	<h1><%=@post.title%></h1>
+	<h2>「 <%=@post.content%> 」</h2>
+	<p><%=link_to 'Back',posts_path,class:"btn btn-primary btn-lg" %>
+	<%=link_to 'お気に入り登録',posts_path,class:"btn btn-primary btn-lg" %></p>
+</div>
