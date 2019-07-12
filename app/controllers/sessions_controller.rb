@@ -16,5 +16,8 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session.delete(:user_id)
+    flash[:danger]="log out!!"
+    redirect_to new_session_path
   end
 end
