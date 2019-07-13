@@ -14,6 +14,7 @@ class PostsController < ApplicationController
 
   def show
     @post=Post.find(params[:id])
+    @favorite=Favorite.find_by(post_id: @post.id)
   end
 
   def new
