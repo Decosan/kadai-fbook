@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   has_secure_password
+  has_many :images
   has_many :posts
   has_many :favorites, dependent: :destroy
   before_validation {email.downcase!}
