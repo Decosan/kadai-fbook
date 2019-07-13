@@ -7,6 +7,14 @@
   			<h4 class="media-heading"><%=post.title%></h4>
   			<%=post.content%>
   		</div>
+      <div>
+        <%=link_to 'Detail',post_path(post.id),class:'btn btn-primary btn-xs'%>
+        <% if post.user_id==current_user.id %>
+          <%=link_to 'Edit',edit_post_path(post.id),class:'btn btn-warning btn-xs'%>
+          <%=link_to 'Delete',post_path(post.id),method: :delete,data:{confirm:'Are you sure?'},class:'btn btn-danger btn-xs'%>
+        <% end %>
+      </div>
   	</li>
   <% end%>
 </ul>
+<%=link_to 'Create New Post',new_post_path,class:'btn btn-primary btn-block'%>
