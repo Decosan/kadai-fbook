@@ -2,14 +2,17 @@
 <%=form_with(model:@post,url:posts_path,local:true)do |f|%>
   <%=f.hidden_field :title%>
   <%=f.hidden_field :content%>
+  <%=f.hidden_field :image_cache%>
 
   <p>Title:<%=@post.title%></p>
   <p>Content:<%=@post.content%></p>
+  <p>Image:<%=@post.image.thumb.url %></p>
   <%=f.submit 'OK!'%>
 <% end %>
 
 <%=form_with(model:@post,url:new_post_path,local:true,method:'get')do |f|%>
   <%=f.hidden_field :title%>
   <%=f.hidden_field :content%>
+  <%=f.hidden_field :image_cache%>
   <%=f.submit 'Back!',name:'back'%>
 <% end %>

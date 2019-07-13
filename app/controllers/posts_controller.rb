@@ -6,8 +6,10 @@ class PostsController < ApplicationController
   end
 
   def confirm
-    @post=Post.new(post_params)
-    @post.user_id=current_user.id
+    # binding.pry
+    @post = current_user.posts.new(post_params)
+    # @post=Post.new(post_params)
+    # @post.user_id=current_user.id
     if @post.invalid?
       render :new
     end
@@ -63,6 +65,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title,:content,:user)
+    params.require(:post).permit(:title,:content,:user,:image, :image_cache)
   end
 end

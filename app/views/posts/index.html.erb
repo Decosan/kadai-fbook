@@ -8,6 +8,13 @@
   			<%=post.content%>
   		</div>
       <div>
+        <% if post.image? %>
+          <%= image_tag post.image.thumb.url %>
+        <% else %>
+          <p>No Image</p>
+        <% end %>
+      </div>
+      <div>
         <%=link_to 'Detail',post_path(post.id),class:'btn btn-primary btn-xs'%>
         <% if post.user_id==current_user.id %>
           <%=link_to 'Edit',edit_post_path(post.id),class:'btn btn-warning btn-xs'%>

@@ -11,5 +11,12 @@
     <%=f.text_field :content,class:'form-control'%>
   </div>
 
+  <div>
+    <%= f.label :image %>
+    <%= image_tag @post.image.thumb.url if @post.image? %>
+    <%= f.file_field :image %>
+    <%= f.hidden_field :image_cache %>
+  </div>
+
   <%=f.submit 'OK!',class:'btn btn-primary btn-block'%>
 <% end %>
