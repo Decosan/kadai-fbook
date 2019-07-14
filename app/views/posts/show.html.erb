@@ -6,7 +6,7 @@
 		<% if @post.image? %>
 		<%= image_tag @post.image.url %>
 		<% else %>
-		<%= image_tag 'noimage.gif' %>
+		<p class='label label-default'>No Image</p>
 		<% end %>
 	</div>
 	<p><%=link_to 'Back',posts_path,class:"btn btn-primary btn-lg" %>

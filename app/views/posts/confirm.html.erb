@@ -6,13 +6,13 @@
 
   <p>Title:<%=@post.title%></p>
   <p>Content:<%=@post.content%></p>
-  <p>Image:<%=@post.image.thumb.url %></p>
+  <p>Image: <%= image_tag @post.image.url %></p>
   <%=f.submit 'OK!'%>
 <% end %>
 
 <%=form_with(model:@post,url:new_post_path,local:true,method:'get')do |f|%>
   <%=f.hidden_field :title%>
-  <%=f.hidden_field :content%>
+  <%=f.hidden_field :content%>ı
   <%=f.hidden_field :image_cache%>
   <%=f.submit 'Back!',name:'back'%>
 <% end %>

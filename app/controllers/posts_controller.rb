@@ -6,10 +6,7 @@ class PostsController < ApplicationController
   end
 
   def confirm
-    # binding.pry
     @post = current_user.posts.new(post_params)
-    # @post=Post.new(post_params)
-    # @post.user_id=current_user.id
     if @post.invalid?
       render :new
     end

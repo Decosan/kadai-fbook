@@ -1,17 +1,22 @@
-<h1>Posts index</h1>
+<h1>Posts index <%=link_to 'Create New Post',new_post_path,class:'btn btn-primary btn-lg'%></h1>
 <ul class="media-list">
   <%@posts.each do |post|%>
   	<li class="media">
       <%=link_to "#{post.user.name}:",user_path(post.user.id),class:"media-left"%>
   		<div class="media-body">
-  			<h4 class="media-heading"><%=post.title%></h4>
+  			<h4 class="media-heading">
+          <%=post.title%>
+          <% if post.favorites.present?%>
+            <span class='glyphicon glyphicon-heart' style='color:red;'></span>
+          <% end %>
+        </h4>
   			<%=post.content%>
   		</div>
-      <div>
+      <div id='photo_image'>
         <% if post.image? %>
-          <%= image_tag post.image.thumb.url %>
+          <%= image_tag post.image.url %>
         <% else %>
-          <p>No Image</p>
+          <p class='label label-default'>No Image</p>
         <% end %>
       </div>
       <div>

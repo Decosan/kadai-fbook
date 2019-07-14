@@ -13,7 +13,7 @@
 
   <div>
     <%= f.label :image %>
-    <%= image_tag @post.image.thumb.url if @post.image? %>
+    <%= image_tag @post.image.url if @post.image? %>
     <%= f.file_field :image %>
     <%= f.hidden_field :image_cache %>
   </div>
