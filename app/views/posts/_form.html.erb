@@ -1,14 +1,14 @@
-<%=form_with(model:post,url:choose_new_or_edit,local:true)do |f|%>
-<%=render 'layouts/error_messages',model: f.object %>
+<%= form_with(model:post,url:choose_new_or_edit,local:true)do |f|%>
+<%= render 'layouts/error_messages',model: f.object %>
 
   <div class="post_group">
-    <%=f.label :title,"Title"%>
-    <%=f.text_field :title,class:'form-control'%>
+    <%= f.label :title,"Title" %>
+    <%= f.text_field :title,class:'form-control' %>
   </div>
 
   <div class="post_group">
-    <%=f.label :content,"Content"%>
-    <%=f.text_field :content,class:'form-control'%>
+    <%= f.label :content,"Content"%>
+    <%= f.text_field :content,class:'form-control'%>
   </div>
 
   <div>
@@ -18,5 +18,5 @@
     <%= f.hidden_field :image_cache %>
   </div>
 
-  <%=f.submit 'OK!',class:'btn btn-primary btn-block'%>
+  <%= f.submit 'OK!',class:'btn btn-primary btn-block'%>
 <% end %>

@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :require_logged_in
 
   def index
-    @posts=Post.all.order('updated_at DESC')
+    @posts = Post.all.order('updated_at DESC')
   end
 
   def confirm
@@ -13,20 +13,20 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post=Post.find(params[:id])
-    @favorite=Favorite.find_by(post_id: @post.id)
+    @post = Post.find(params[:id])
+    @favorite = Favorite.find_by(post_id: @post.id)
   end
 
   def new
     if params[:back]
-      @post=Post.new(post_params)
+      @post = Post.new(post_params)
     else
-      @post=Post.new
+      @post = Post.new
     end
   end
 
   def create
-    @post=Post.new(post_params)
+    @post = Post.new(post_params)
     @post.user_id=current_user.id
     if @post.save
       flash[:success]='Posted!!'
@@ -38,11 +38,11 @@ class PostsController < ApplicationController
   end
 
   def edit
-    @post=Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   def update
-    @post=Post.find(params[:id])
+    @post = Post.find(params[:id])
     if @post.update(post_params)
       flash[:success]='Edit completed'
       redirect_to posts_path
@@ -53,7 +53,7 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post=Post.find(params[:id])
+    @post = Post.find(params[:id])
     @post.destroy
     flash[:danger]='Deleted!'
     redirect_to posts_path
