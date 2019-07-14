@@ -6,7 +6,7 @@
 
   <p>Title:<%=@post.title%></p>
   <p>Content:<%=@post.content%></p>
-  <p>Image: <%= image_tag @post.image.url %></p>
+  <p>Image: <%= image_tag @post.image.url if @post.image?%></p>
   <%=f.submit 'OK!'%>
 <% end %>
 
