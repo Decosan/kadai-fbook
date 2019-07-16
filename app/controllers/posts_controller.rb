@@ -27,12 +27,12 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
-    @post.user_id=current_user.id
+    @post.user_id = current_user.id
     if @post.save
-      flash[:success]='Posted!!'
+      flash[:success] ='Posted!!'
       redirect_to posts_path
     else
-      flash.now[:danger]='Failed..'
+      flash.now[:danger] ='Failed..'
       render 'new'
     end
   end
@@ -44,10 +44,10 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update(post_params)
-      flash[:success]='Edit completed'
+      flash[:success] ='Edit completed'
       redirect_to posts_path
     else
-      flash[:danger]='Failed..'
+      flash[:danger] ='Failed..'
       render 'edit'
     end
   end
@@ -55,7 +55,7 @@ class PostsController < ApplicationController
   def destroy
     @post = Post.find(params[:id])
     @post.destroy
-    flash[:danger]='Deleted!'
+    flash[:danger] ='Deleted!'
     redirect_to posts_path
   end
 
